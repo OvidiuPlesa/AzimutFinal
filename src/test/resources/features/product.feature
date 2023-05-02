@@ -5,11 +5,13 @@ Feature: Tme product
 
 
   Scenario:   Search a product
-    Then      Click on "Va rugam logati-va"
-    And       Insert user "Ovidiu_Plesa"
-    *         Insert password "Junior_361"
-    *         Click on button "Logati-va"
-    *         Search product "Fluke 87V"
-    *         Add product in Favorite
-    *         Create a fav folder "Multimetru"
+
+   And        Search product "Fluke 87V"
+   Then       Add product in Favorite
+    *         Insert LoginUser "Ovidiu_New86"
+    *         Insert LoginPass "AziMutFinal_10052023"
+    *         Click on Loginbutton "loginBtn"
+    *         Create a Favorite folder "Multimetru"
+    *         Add the product to Favorite Folder
+    *         Check the Favorite Folder
     *         Delete the product from Favorite

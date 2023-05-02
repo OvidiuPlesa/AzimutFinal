@@ -13,8 +13,10 @@ public class login {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.startBrowser("https://www.tme.eu/ro/");
         sleep(2000);
-     // Remove website cookies
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']")).click();
+        // Remove website cookies
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']"))
+                .click();
         sleep(2000);
     }
 
@@ -30,7 +32,7 @@ public class login {
     public void insert_user(String user) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                        .xpath("//*[@class='c-login-modal__input o-form__input u-font-size-base js-processed']"))
+                .xpath("//*[@class='c-login-modal__input o-form__input u-font-size-base js-processed']"))
                 .sendKeys(user);
         sleep(1000);
     }
@@ -38,7 +40,7 @@ public class login {
     public void insert_password(String password) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                        .xpath("//*[@class='c-login-modal__input c-login-modal__input--password o-form__input u-font-size-base js-processed']"))
+                .xpath("//*[@class='c-login-modal__input c-login-modal__input--password o-form__input u-font-size-base js-processed']"))
                 .sendKeys(password);
         sleep(1000);
     }
@@ -46,7 +48,7 @@ public class login {
     public void click_on_buttton(String enterbutton) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                        .xpath("//*[@class='c-login-modal__submit-btn js-login-modal__submit-btn o-button o-button--medium o-button-filled--blue js-processed']"))
+                .xpath("//*[@class='c-login-modal__submit-btn js-login-modal__submit-btn o-button o-button--medium o-button-filled--blue js-processed']"))
                 .click();
         sleep(1000);
     }
@@ -68,7 +70,6 @@ public class login {
         sleep(1000);
     }
 
-
     @Then("Insert LoginPass {string}")
     public void Insert_LoginPass(String logpass) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
@@ -82,71 +83,15 @@ public class login {
         WebDriverInit.getDriver().findElement(By.xpath("//*[@id='"+loginbtn+"']")).click();
         sleep(1000);
     }
-// Scenarion Search a product and add to favorite
-
-    @Then("Search product {string}")
-    public void Searchproduct(String multimetru) throws InterruptedException {
+//    Logout the User at the end of the test
+    @Then("Click on Logout button")
+    public void ClickonLogoutbutton() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@name='search']")).sendKeys(multimetru);
-        sleep(500);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-header__search-button o-button o-button-filled--red']")).click();
-        sleep(1000);
-        JavascriptExecutor jse = (JavascriptExecutor)WebDriverInit.getDriver();
-        jse.executeScript("window.scrollBy(0,350)");
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='button button-grey']")).click();
-        sleep(1000);
-    }
-    //    Actions actions = new Actions(driver);
-    //        actions.scrollByAmount(0, 1200).perform();
-
-    @Then("Add product in Favorite")
-    public void addproductinfavorite() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@title='FLK-87V; Multimetru digital; LCD (6000/20000),iluminat; True RMS AC']"))
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//button[@class='js-logout c-header__login t-logout']"))
                 .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-pip__actions-container c-pip__actions-container--desktop']"))
-                .click();
-        sleep(1000);
+        sleep(2000);
+}
 
-//        driver.findElement(By.xpath("//*[contains(text(), ‘Echipamente de atelier')]")).click();
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Echipamente de atelier')]")).click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Instrumente de măsurare ')]"))
-                        .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Multimetre digitale ')]"))
-                .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Multimetre digitale portabile')]"))
-                .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//input[@id='parameter_input_2']")).sendKeys("FLUKE");
-        sleep(1000);
-//        driver.findElement(By.xpath("//*[@id='similar_param_267']")).click();
-//        driver.findElement(By.xpath("//*[@id='similar_param_267']/following-sibling::span[@class='rd-checkmark']"))
-//                .click();
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'FLUKE')]")).sendKeys(Keys.ENTER);
-        sleep(1000);
-
-
-    }
-    @Then("Create a fav folder {string}")
-    public void createafavfolder(String folder) throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@placeholder='Denumire folder']")).sendKeys(folder);
-        sleep(1000);
-//        driver.findElement(By.xpath("//button[@class='o-button o-button--medium o-button-filled--blue']"))
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@data-gtm-prod-id='FLK-87V']//*[contains(text(), 'Adaugă la Favorite')]"))
-                .click();
-        sleep(1000);
-    }
-
-    @Then("Delete the product from Favorite")
-    public void deletetheproductfromfavorite() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
-        sleep(1000);
-    }
 
 }
