@@ -1,12 +1,11 @@
 package stepsDefinition;
 
-import org.junit.After;
+import io.cucumber.java.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import static java.lang.Thread.sleep;
 
 public class WebDriverInit {
 
@@ -33,17 +32,10 @@ public class WebDriverInit {
     }
 
     @After
-    public void tearDown() {
-        driver.quit();
-    }
-    /*
-    @After
-        public static void finishBrowser(){
+    public static void finishBrowser(){
             if (driver != null) {
                 driver.quit();
                 driver = null;
     }
-
    }
-     */
 }
