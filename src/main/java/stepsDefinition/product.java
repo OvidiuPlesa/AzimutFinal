@@ -34,34 +34,6 @@ public class product {
                 .xpath("//*[@data-gtm-prod-id='FLK-87V']//a[@class='c-product-row__option-link c-product-option__link']"))
                 .click();
         sleep(1000);
-        /*
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@title='FLK-87V; Multimetru digital; LCD (6000/20000),iluminat; True RMS AC']"))
-                .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-pip__actions-container c-pip__actions-container--desktop']"))
-                .click();
-        sleep(1000);
-
-//        driver.findElement(By.xpath("//*[contains(text(), ‘Echipamente de atelier')]")).click();
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Echipamente de atelier')]")).click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Instrumente de măsurare ')]"))
-                .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Multimetre digitale ')]"))
-                .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'Multimetre digitale portabile')]"))
-                .click();
-        sleep(1000);
-        WebDriverInit.getDriver().findElement(By.xpath("//input[@id='parameter_input_2']")).sendKeys("FLUKE");
-        sleep(1000);
-//        driver.findElement(By.xpath("//*[@id='similar_param_267']")).click();
-//        driver.findElement(By.xpath("//*[@id='similar_param_267']/following-sibling::span[@class='rd-checkmark']"))
-//                .click();
-        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(), 'FLUKE')]")).sendKeys(Keys.ENTER);
-        sleep(1000);
-         */
     }
 
     @Then("Create a Favorite folder {string}")
@@ -86,20 +58,57 @@ public class product {
         sleep(1000);
     }
 
-    @Then("Check the Favorite Folder")
-    public void ChecktheFavoriteFolder() throws InterruptedException {
+//      Scenario: Check and delete Favorite Folder
+
+    @Then("Click on the Favorite Button")
+    public void ClickontheFavoriteButton() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        WebDriverInit.getDriver().findElement(By.xpath("//button[@class='c-header__favourites-button']")).click();
+        WebDriverInit.getDriver().findElement(By.xpath("//button[@class='c-header__favourites-button']"))
+                .click();
+        sleep(1000);
+    }
+    @Then("Open Favorite folder named {string}")
+    public void OpenFavoritefoldernamed(String favname) throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(),'"+favname+"')]"))
+                .click();
         sleep(1000);
     }
 
+    @Then("Select checkbox for product")
+    public void selectccheckboxforproduct() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@class='rd-table items clean tablesorter-ready tablesorter hasSaveSort']//*[@class='rd-checkmark']"))
+                .click();
+        sleep(1000);
+    }
     @Then("Delete the product from Favorite")
     public void deletetheproductfromfavorite() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@id='directory-container']//*[contains(text(),'Ştergere')]"))
+                .click();
         sleep(1000);
     }
 
+    @Then("Check button {string}")
+    public void checkbuttton(String ackdelet) throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        WebDriverInit.getDriver().findElement(By
+                        .xpath("//*[@class='popup_panel']//*[contains(text(),'"+ackdelet+"')]"))
+                .click();
+        sleep(1000);
+    }
+
+    @Then("Delete the Favorite folder")
+    public void deletetheFavoritefolder() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@class='parking__option-button parking__option-remove parking__option-button--danger']"))
+                .click();
+        sleep(1000);
+    }
 
 
 }

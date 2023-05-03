@@ -15,7 +15,6 @@ Feature: Tme Login
     *       Insert LoginPass ""
     *       Click on Loginbutton "loginBtn"
     *       Check the Error text
-
 #   User and password ok
     *       Insert LoginUser "Ovidiu_New86"
     *       Insert LoginPass "AziMutFinal_10052023"
