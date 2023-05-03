@@ -8,7 +8,7 @@ Feature: Tme Login
 #    Wrong user and password
     And     Insert user "ovidiu.plesa"
     And     Insert password "nenea eu"
-    *       Click on button "Logati-va"
+    *       Click on login button
     *       Check the Error text
 #    User ok and No password
     *       Insert LoginUser "Ovidiu_New86"

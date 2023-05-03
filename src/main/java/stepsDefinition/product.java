@@ -3,20 +3,19 @@ package stepsDefinition;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-
 import static java.lang.Thread.sleep;
 
 public class product {
 
-    // Scenario Search a product and add to favorite
+//      Scenario Search a product and add to favorite
     @Then("Search product {string}")
     public void searchProduct(String multimetru) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By.xpath("//*[@name='search']")).sendKeys(multimetru);
         sleep(1000);
         WebDriverInit.getDriver().findElement(By
-                .xpath("//*[@class='c-header__search-button o-button o-button-filled--red']")).click();
+                .xpath("//*[@class='c-header__search-button o-button o-button-filled--red']"))
+                .click();
         sleep(1000);
         //Scroll down in the web page
         JavascriptExecutor jse = (JavascriptExecutor)WebDriverInit.getDriver();
@@ -28,18 +27,17 @@ public class product {
     }
 
     @Then("Add product in Favorite")
-    public void addproductinfavorite() throws InterruptedException {
+    public void addProductInFavorite() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                .xpath("//*[@data-gtm-prod-id='FLK-87V']//a[@class='c-product-row__option-link c-product-option__link']"))
-                .click();
-        sleep(1000);
+                .xpath("//*[@data-gtm-prod-id='FLK-87V']" +
+                        "//a[@class='c-product-row__option-link c-product-option__link']")).click();
+        sleep(2000);
     }
 
     @Then("Create a Favorite folder {string}")
-    public void createafavfolder(String folder) throws InterruptedException {
+    public void createAFavoriteFolder(String folder) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-
         WebDriverInit.getDriver().findElement(By
                 .xpath("//*[contains(text(),'Creare folder nou')]")).click();
         sleep(1000);
@@ -52,62 +50,59 @@ public class product {
     }
 
     @Then("Add the product to Favorite Folder")
-    public void AddtheproducttoFavoriteFolder() throws InterruptedException {
+    public void addTheProductToFavoriteFolder() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By.xpath("//a[contains(text(),'OK')]")).click();
-        sleep(1000);
+        sleep(2000);
     }
 
 //      Scenario: Check and delete Favorite Folder
 
     @Then("Click on the Favorite Button")
-    public void ClickontheFavoriteButton() throws InterruptedException {
+    public void clickOnTheFavoriteButton() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By.xpath("//button[@class='c-header__favourites-button']"))
                 .click();
-        sleep(1000);
+        sleep(2000);
     }
     @Then("Open Favorite folder named {string}")
-    public void OpenFavoritefoldernamed(String favname) throws InterruptedException {
+    public void openFavoriteFolderNamed(String favname) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By.xpath("//*[contains(text(),'"+favname+"')]"))
                 .click();
-        sleep(1000);
+        sleep(2000);
     }
 
     @Then("Select checkbox for product")
-    public void selectccheckboxforproduct() throws InterruptedException {
+    public void selectCheckboxForProduct() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                .xpath("//*[@class='rd-table items clean tablesorter-ready tablesorter hasSaveSort']//*[@class='rd-checkmark']"))
-                .click();
-        sleep(1000);
+                .xpath("//*[@class='rd-table items clean tablesorter-ready tablesorter hasSaveSort']" +
+                        "//*[@class='rd-checkmark']")).click();
+        sleep(2000);
     }
     @Then("Delete the product from Favorite")
-    public void deletetheproductfromfavorite() throws InterruptedException {
+    public void deleteTheProductFromFavorite() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                .xpath("//*[@id='directory-container']//*[contains(text(),'Ştergere')]"))
-                .click();
-        sleep(1000);
+                .xpath("//*[@id='directory-container']//*[contains(text(),'Ştergere')]")).click();
+        sleep(2000);
     }
 
     @Then("Check button {string}")
-    public void checkbuttton(String ackdelet) throws InterruptedException {
+    public void checkButtton(String ackdelet) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                        .xpath("//*[@class='popup_panel']//*[contains(text(),'"+ackdelet+"')]"))
-                .click();
-        sleep(1000);
+                        .xpath("//*[@class='popup_panel']//*[contains(text(),'"+ackdelet+"')]")).click();
+        sleep(2000);
     }
 
     @Then("Delete the Favorite folder")
-    public void deletetheFavoritefolder() throws InterruptedException {
+    public void deleteTheFavoriteFolder() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        WebDriverInit.getDriver().findElement(By
-                .xpath("//*[@class='parking__option-button parking__option-remove parking__option-button--danger']"))
-                .click();
-        sleep(1000);
+        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='parking__option-button " +
+                        "parking__option-remove parking__option-button--danger']")).click();
+        sleep(2000);
     }
 
 

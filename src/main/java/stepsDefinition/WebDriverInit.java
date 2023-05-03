@@ -30,12 +30,11 @@ public class WebDriverInit {
         driver.manage().window().maximize();
         driver.get(pageUrl);
     }
-
     @After
     public static void finishBrowser(){
             if (driver != null) {
                 driver.quit();
                 driver = null;
+            }
     }
-   }
 }
