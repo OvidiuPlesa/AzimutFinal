@@ -14,6 +14,8 @@ Feature: Tme val max
     *         In popup page Click on button "Pasul urmator"
     *         In the new page Click on button "Continuaţi cumpărăturile"
 
+#    // nu mai functioneaza pt ca am atins numarul maxim de comenzi pe site =))
+
   Scenario:   Check the shopping cart
 
     Then      Click on shopping basket "Coş"

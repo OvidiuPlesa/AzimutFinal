@@ -48,7 +48,8 @@ public class login {
     public void click_on_buttton(String enterbutton) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By
-                .xpath("//*[@class='c-login-modal__submit-btn js-login-modal__submit-btn o-button o-button--medium o-button-filled--blue js-processed']"))
+                .xpath("//*[@class='c-login-modal__submit-btn js-login-modal__submit-btn" +
+                        " o-button o-button--medium o-button-filled--blue js-processed']"))
                 .click();
         sleep(1000);
     }

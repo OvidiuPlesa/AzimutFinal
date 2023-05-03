@@ -25,19 +25,24 @@ public class valMaxiProduct {
     @Then("In popup page Click on button {string}")
     public void inpopuppageClickonbutton(String buttonnext) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
+
         WebDriverInit.getDriver().findElement(By
                 .xpath("//button[@type='button']//*[contains(text(),'"+buttonnext+"')]"))
                 .click();
-        sleep(1000);
+        sleep(10000);
     }
 
     @Then("In the new page Click on button {string}")
     public void inthenewpageClickonbutton(String newbutton1) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        WebDriverInit.getDriver().findElement(By
-                        .xpath("//*[@class='c-cart-footer__container c-cart-footer__container-step-2']//*[contains(text(),'"+newbutton1+"')]"))
-                .click();
+        //Scroll down in the web page
+        JavascriptExecutor jse = (JavascriptExecutor)WebDriverInit.getDriver();
+        jse.executeScript("window.scrollBy(0,250)");
         sleep(1000);
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@class='c-cart-footer__container c-cart-footer__container-step-2']" +
+                        "//*[contains(text(),'"+newbutton1+"')]")).click();
+        sleep(10000);
     }
 
 

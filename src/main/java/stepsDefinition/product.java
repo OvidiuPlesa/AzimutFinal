@@ -11,7 +11,7 @@ public class product {
 
     // Scenario Search a product and add to favorite
     @Then("Search product {string}")
-    public void Searchproduct(String multimetru) throws InterruptedException {
+    public void searchProduct(String multimetru) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By.xpath("//*[@name='search']")).sendKeys(multimetru);
         sleep(1000);
