@@ -22,12 +22,12 @@ Feature: Tme val max
     And       In right side Click on "Va rugam logati-va"
     *         Insert user "Ovidiu_New86"
     *         Insert password "AziMutFinal_10052023"
-    *         Click on button "Logati-va"
+    *         Click on login button
     *         Click again on shopping basket "Coş"
+    *         Click on button for basket "Mergeți la coș"
     *         For the product select "10" parts
     *         Save the modification
-
+    *         Check the error from message
 #  Scenario:   Val max of order for normal client
 
 
-#    *         Check the error from message
