@@ -25,7 +25,7 @@ public class valMaxiProduct {
         // Write code here that turns the phrase above into concrete actions
         WebDriverInit.getDriver().findElement(By.xpath("//button[@type='button']" +
                 "//*[contains(text(),'" + buttonnext + "')]")).click();
-        sleep(2000);
+        sleep(5000);
     }
 
     @Then("In the new page Click on button {string}")
@@ -34,7 +34,7 @@ public class valMaxiProduct {
         //Scroll down in the web page
         JavascriptExecutor jse = (JavascriptExecutor) WebDriverInit.getDriver();
         jse.executeScript("window.scrollBy(0,250)");
-        sleep(1000);
+        sleep(3000);
         WebDriverInit.getDriver().findElement(By
                 .xpath("//*[@class='c-cart-footer__container c-cart-footer__container-step-2']" +
                         "//*[contains(text(),'" + newbutton1 + "')]")).click();
@@ -70,21 +70,21 @@ public class valMaxiProduct {
     @Then("Click on button for basket {string}")
     public void clickOnButtonForBasket(String gotobasket) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        sleep(2000);
-//        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-basket-widget__button-container']" +
-//                "//*[contains(text(),'"+gotobasket+"')]")).click();
-//        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-basket-widget__button-container']" +
-//                "//*[contains(text(),'Mergeți la coș')]")).click();
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-basket-widget__button-container']")).click();
+        sleep(5000);
+        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-basket-widget__button-container']" +
+                "//*[contains(text(),'"+gotobasket+"')]")).click();
         sleep(2000);
     }
 
     @Then("For the product select {string} parts")
     public void forTheProductSelectParts(String number) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        WebDriverInit.getDriver().findElement(By.xpath("//*[@class='c-order-line__options']"))
-                .sendKeys(number);
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@class='c-order-line__options']//*[@type='text']")).clear();
         sleep(2000);
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@class='c-order-line__options']//*[@type='text']")).sendKeys(number);
+        sleep(3000);
     }
 
     @Then("Save the modification")
@@ -102,4 +102,31 @@ public class valMaxiProduct {
                 .xpath("//*[@class='c-error-modal__error-info']")).getText());
         sleep(2000);
     }
+
+//      Scenario: Deleted a product from shopping cart
+
+    @Then("Click on button to delete the product")
+    public void ClickOnButtonToDeleteTheProduct() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        //Scroll down in the web page
+        JavascriptExecutor jse = (JavascriptExecutor) WebDriverInit.getDriver();
+        jse.executeScript("window.scrollBy(0,150)");
+        sleep(3000);
+        WebDriverInit.getDriver().findElement(By
+                .xpath("//*[@class='o-icon o-icon--medium c-order-line__option-delete']")).click();
+        sleep(3000);
+    }
+
+    @Then("Then user Logout")
+    public void thenUserLogout() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        JavascriptExecutor jse = (JavascriptExecutor) WebDriverInit.getDriver();
+        jse.executeScript("window.scrollBy(0,-350)");
+        sleep(3000);
+        WebDriverInit.getDriver().findElement(By
+                        .xpath("//button[@class='js-logout c-header__login t-logout']")).click();
+        sleep(2000);
+    }
+
+
 }

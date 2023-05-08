@@ -8,15 +8,15 @@ Feature: Tme Login
 #    Wrong user and password
     And     Insert user "ovidiu.plesa"
     And     Insert password "nenea eu"
-    *       Click on login button
-    *       Check the Error text
+    Then    Click on login button
+    And     Check the Error text
 #    User ok and No password
-    *       Insert LoginUser "Ovidiu_New86"
-    *       Insert LoginPass ""
-    *       Click on Loginbutton "loginBtn"
-    *       Check the Error text
+    Then    Insert LoginUser "Ovidiu_New86"
+    And     Insert LoginPass ""
+    Then    Click on Loginbutton "loginBtn"
+    And     Check the Error text
 #   User and password ok
-    *       Insert LoginUser "Ovidiu_New86"
-    *       Insert LoginPass "AziMutFinal_10052023"
-    *       Click on Loginbutton "loginBtn"
-    *       Click on Logout button
+    Then    Insert LoginUser "Ovidiu_New86"
+    And     Insert LoginPass "AziMutFinal_10052023"
+    And     Click on Loginbutton "loginBtn"
+    Then    Click on Logout button
