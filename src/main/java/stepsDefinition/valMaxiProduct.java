@@ -3,6 +3,7 @@ package stepsDefinition;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+
 import static java.lang.Thread.sleep;
 
 public class valMaxiProduct {
@@ -34,7 +35,7 @@ public class valMaxiProduct {
         //Scroll down in the web page
         JavascriptExecutor jse = (JavascriptExecutor) WebDriverInit.getDriver();
         jse.executeScript("window.scrollBy(0,250)");
-        sleep(3000);
+        sleep(2000);
         WebDriverInit.getDriver().findElement(By
                 .xpath("//*[@class='c-cart-footer__container c-cart-footer__container-step-2']" +
                         "//*[contains(text(),'" + newbutton1 + "')]")).click();
