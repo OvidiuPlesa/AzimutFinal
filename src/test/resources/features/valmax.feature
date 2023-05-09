@@ -30,7 +30,7 @@ Feature: Tme val max
     And       Check the error from message
 
   Scenario: Deleted a product from shopping cart
-
+#Precondition: The scenario for add a product to cart should be performed first
     Then    Click on "Va rugam logati-va"
     And     Insert user "Ovidiu_New86"
     And     Insert password "AziMutFinal_10052023"
